@@ -1,0 +1,18 @@
+services:
+  garmin-mcp:
+    image: garmin-mcp-server:1.0
+    volumes:
+      - ${APP_DATA_DIR}/data:/root/.garminconnect:ro
+    environment:
+      - TZ=Europe/Paris
+    restart: unless-stopped
+    labels:
+      - "traefik.http.middlewares.{{RUNTIPI_APP_ID}}-basicauth.basicauth.users=vincent:$$apr1$$REldqKZj$$77cy1oIMtZBb1hm6IxWfK0"
+      - "traefik.http.middlewares.{{RUNTIPI_APP_ID}}-basicauth.basicauth.removeheader=true"
+      - "traefik.http.routers.{{RUNTIPI_APP_ID}}.middlewares={{RUNTIPI_APP_ID}}-basicauth"
+    x-runtipi:
+      is_main: true
+      internal_port: 8000
+
+x-runtipi:
+  schema_version: 2
