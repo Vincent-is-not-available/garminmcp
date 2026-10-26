@@ -1,0 +1,16 @@
+{
+  "name": "Garmin MCP",
+  "id": "garmin-mcp",
+  "available": true,
+  "short_desc": "Serveur MCP pour les données Garmin Connect.",
+  "description": "Serveur MCP (Model Context Protocol) exposant les données santé Garmin Connect (sommeil, FC, HRV, stress, activités).",
+  "author": "bmccarn",
+  "port": 8123,
+  "categories": ["utilities"],
+  "tipi_version": 1,
+  "version": "1.0.0",
+  "source": "https://github.com/bmccarn/garmin-mcp-server",
+  "exposable": true,
+  "dynamic_config": true,
+  "form_fields": []
+}
