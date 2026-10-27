@@ -1,15 +1,12 @@
 services:
   garmin-mcp:
-    image: ghcr.io/vincent-is-not-available/garmin-mcp-server:1.0
+    image: ghcr.io/vincent-is-not-available/garmin-mcp-server:1.1
     volumes:
       - ${APP_DATA_DIR}/data:/root/.garminconnect:ro
     environment:
       - TZ=Europe/Paris
+      - MCP_BEARER_TOKEN=${MCP_BEARER_TOKEN}
     restart: unless-stopped
-    labels:
-      - "traefik.http.middlewares.{{RUNTIPI_APP_ID}}-basicauth.basicauth.users=vincent:$$2y$$05$$7Auukb9TrWELj93qVV61A.zU9pP6aVbDvj5W/MKJ6BUYfg2odBePa"
-      - "traefik.http.middlewares.{{RUNTIPI_APP_ID}}-basicauth.basicauth.removeheader=true"
-      - "traefik.http.routers.{{RUNTIPI_APP_ID}}.middlewares={{RUNTIPI_APP_ID}}-basicauth"
     x-runtipi:
       is_main: true
       internal_port: 8000
