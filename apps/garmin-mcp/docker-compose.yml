@@ -1,6 +1,6 @@
 services:
   garmin-mcp:
-    image: ghcr.io/vincent-is-not-available/garmin-mcp-server:1.1
+    image: ghcr.io/vincent-is-not-available/garmin-mcp-server:1.2
     volumes:
       - ${APP_DATA_DIR}/data:/root/.garminconnect:ro
     environment:
