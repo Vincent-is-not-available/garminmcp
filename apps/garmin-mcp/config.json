@@ -7,10 +7,17 @@
   "author": "bmccarn",
   "port": 8123,
   "categories": ["utilities"],
-  "tipi_version": 1,
-  "version": "1.0.0",
+  "tipi_version": 2,
+  "version": "1.1.0",
   "source": "https://github.com/bmccarn/garmin-mcp-server",
   "exposable": true,
   "dynamic_config": true,
-  "form_fields": []
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "Token Bearer (protection du serveur MCP)",
+      "required": true,
+      "env_variable": "MCP_BEARER_TOKEN"
+    }
+  ]
 }
